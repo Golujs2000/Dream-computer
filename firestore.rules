@@ -1,0 +1,97 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.admin == true ||
+        exists(/databases/$(database)/documents/adminUsers/$(request.auth.uid))
+      );
+    }
+
+    // Public read for products, categories, brands, banners, testimonials, navigation, settings, pages
+    match /products/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /categories/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /brands/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /attributes/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /banners/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /homepageSections/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /testimonials/{document=**} {
+      allow read: if resource.data.approved == true || isAdmin();
+      allow create: if true; // Customer can submit review for admin review
+      allow update, delete: if isAdmin();
+    }
+
+    match /pages/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /navigation/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /settings/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Bookings: Public can create, only admin or creator can read, only admin can update/delete
+    match /bookings/{bookingId} {
+      allow create: if true;
+      allow read: if isAdmin() || (isAuthenticated() && resource.data.userId == request.auth.uid);
+      allow update, delete: if isAdmin();
+    }
+
+    // Inventory logs: Admin only
+    match /inventoryLogs/{document=**} {
+      allow read, write: if isAdmin();
+    }
+
+    // Admin Users: Only admins can read/write
+    match /adminUsers/{userId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Analytics Events: Public can create events, only admins can read and aggregate
+    match /analyticsEvents/{eventId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Customer profiles
+    match /customers/{customerId} {
+      allow read, write: if isAuthenticated() && (request.auth.uid == customerId || isAdmin());
+    }
+  }
+}
