@@ -16,6 +16,7 @@ This document contains copy-paste ready, character-count verified content for th
 | **Address** | Beside of Westside Mall, Near SBI ATM, S.P. Verma Road Chauraha, New Dakbunglow Main Road, Patna, Bihar – 800001, India | Matches physical quotation pad & storefront. |
 | **Primary Phone** | `+91 84484 74795` | Calling & customer service. |
 | **Secondary / WhatsApp**| `+91 82929 21078` | WhatsApp booking & instant quotes. |
+| **Official Email** | `kram56447@gmail.com` | Official store correspondence. |
 | **Website URL** | `https://dreamcomputerpatna.com` | Official website. |
 | **Opening Hours** | Monday – Sunday: 9:00 AM – 9:00 PM | Open all 7 days a week. |
 

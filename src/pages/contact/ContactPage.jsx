@@ -96,8 +96,8 @@ export const ContactPage = () => {
                     <Mail className="w-5 h-5 text-[#BEF8A1] shrink-0" />
                     <div>
                       <div className="font-bold text-[#F5F5F7]">Official Email</div>
-                      <a href="mailto:dreamcomputer2026@gmail.com" className="text-xs text-[#BEF8A1] hover:underline">
-                        dreamcomputer2026@gmail.com
+                      <a href="mailto:kram56447@gmail.com" className="text-xs text-[#BEF8A1] hover:underline">
+                        kram56447@gmail.com
                       </a>
                     </div>
                   </div>

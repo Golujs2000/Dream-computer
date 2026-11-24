@@ -693,7 +693,7 @@ export const INITIAL_SETTINGS = {
   phoneSecondary: '+91 82929 21078',
   whatsapp: '+91 84484 74795',
   whatsappSecondary: '+91 82929 21078',
-  email: 'dreamcomputer2026@gmail.com',
+  email: 'kram56447@gmail.com',
   address: 'Beside of Westside Mall, Near SBI ATM, S.P. Verma Road Chauraha, New Dakbunglow Main Road, Patna-01',
   hours: 'Monday – Sunday: 9:00 AM – 9:00 PM',
   googleMapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2843.6215253365717!2d85.1366854741696!3d25.609550914878046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed594ad8cd8e63%3A0x9b99e4c82865469b!2sDream%20Computer!5e1!3m2!1sen!2sin!4v1795421348090!5m2!1sen!2sin',

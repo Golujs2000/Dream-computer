@@ -96,7 +96,7 @@ console.log(`   - City: ${storeSchema.address.addressLocality}`);
 console.log(`   - Geo: Lat ${storeSchema.geo.latitude}, Lon ${storeSchema.geo.longitude}`);
 console.log(`   - Opening Hours: ${storeSchema.openingHoursSpecification.length} entries`);
 
-if (!storeSchema.address.streetAddress.toLowerCase().includes('verma road') || storeSchema.vatID !== '10GEBPB0233K1ZA' || storeSchema.email !== 'dreamcomputer2026@gmail.com') {
+if (!storeSchema.address.streetAddress.toLowerCase().includes('verma road') || storeSchema.vatID !== '10GEBPB0233K1ZA' || storeSchema.email !== 'kram56447@gmail.com') {
   throw new Error('Store schema failed local business and GSTIN validation!');
 }
 console.log('   ✓ LocalBusiness & GSTIN Schema PASSED\n');

@@ -314,7 +314,7 @@ export const QuotationModal = ({
               Address :- Beside of Westside Mall, Near SBI ATM, S.P. Verma Road Chauraha, New Dakbunglow Main Road, Patna-01
             </p>
             <p className="text-[11px] text-[#003366] font-bold">
-              E-Mail : dreamcomputer2026@gmail.com
+              E-Mail : kram56447@gmail.com
             </p>
 
             {/* Brands Horizontal Row as printed on the sheet */}

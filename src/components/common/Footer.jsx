@@ -97,8 +97,8 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#BEF8A1] shrink-0" />
-                <a href="mailto:dreamcomputer2026@gmail.com" className="text-xs hover:text-[#BEF8A1] transition-colors">
-                  dreamcomputer2026@gmail.com
+                <a href="mailto:kram56447@gmail.com" className="text-xs hover:text-[#BEF8A1] transition-colors">
+                  kram56447@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">

@@ -12,7 +12,7 @@ export const STORE_INFO = {
   secondaryPhone: '+91 82929 21078',
   whatsapp: '+91 84484 74795',
   secondaryWhatsapp: '+91 82929 21078',
-  email: 'dreamcomputer2026@gmail.com',
+  email: 'kram56447@gmail.com',
   url: 'https://dreamcomputerpatna.com',
   address: {
     streetAddress: 'Beside of Westside Mall, Near SBI ATM, S.P. Verma Road Chauraha, New Dakbunglow Main Road',
