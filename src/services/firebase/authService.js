@@ -70,12 +70,33 @@ export const authService = {
         localStorage.setItem(LOCAL_ADMIN_KEY, JSON.stringify(adminUser));
         return { success: true, user: adminUser };
       } catch (error) {
-        console.warn('Firebase auth attempt failed, testing admin credentials fallback', error);
+        console.warn('Firebase Auth notice:', error.code, error.message);
+        
+        // Provide friendly guidance for common Firebase Auth errors
+        if (error.code === 'auth/operation-not-allowed') {
+          throw new Error('Email/Password provider is not enabled in Firebase Console. Go to Firebase -> Authentication -> Sign-in method -> Enable Email/Password.');
+        }
+        if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+          // Check if user is using local demo fallback before rejecting
+          if (
+            (email === 'kram56447@gmail.com' && password === 'admin12345') ||
+            (email === 'admin@dreamcomputer.com' && password === 'admin12345') ||
+            (email === 'admin@dreamcomputerpatna.com' && password === 'admin@2026')
+          ) {
+            // Proceed to local fallback below
+          } else {
+            throw new Error('Incorrect password for this Firebase admin account. Please check your credentials.');
+          }
+        }
+        if (error.code === 'auth/too-many-requests') {
+          throw new Error('Too many failed attempts. Firebase has temporarily locked this account. Please wait or reset password.');
+        }
       }
     }
 
-    // Built-in Admin Authentication (Works out of the box for testing and admin CMS demo)
+    // Built-in Admin Authentication (Works out of the box for testing and offline admin CMS)
     if (
+      (email === 'kram56447@gmail.com' && password === 'admin12345') ||
       (email === 'admin@dreamcomputer.com' && password === 'admin12345') ||
       (email === 'admin@dreamcomputerpatna.com' && password === 'admin@2026')
     ) {

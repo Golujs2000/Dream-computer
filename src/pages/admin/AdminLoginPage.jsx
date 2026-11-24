@@ -32,9 +32,9 @@ export const AdminLoginPage = () => {
   };
 
   const fillTestCredentials = () => {
-    setEmail('admin@dreamcomputer.com');
+    setEmail('kram56447@gmail.com');
     setPassword('admin12345');
-    toast.success('Filled default admin credentials!');
+    toast.success('Filled admin credentials!');
   };
 
   return (
@@ -72,7 +72,7 @@ export const AdminLoginPage = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@dreamcomputer.com"
+                  placeholder="kram56447@gmail.com"
                   className="w-full bg-[#191F2D] border border-[#303746] rounded-lg pl-9 pr-3 py-2.5 text-sm text-[#F5F5F7] focus:outline-none focus:border-[#BEF8A1]"
                 />
               </div>
@@ -122,7 +122,7 @@ export const AdminLoginPage = () => {
               <span>Fill Default Demo Credentials</span>
             </button>
             <div className="text-[11px] text-[#8B929E] mt-1 font-mono">
-              admin@dreamcomputer.com / admin12345
+              kram56447@gmail.com / admin12345
             </div>
           </div>
         </div>
