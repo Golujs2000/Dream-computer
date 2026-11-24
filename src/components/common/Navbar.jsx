@@ -17,6 +17,7 @@ import { useCart } from '../../context/CartContext';
 import { useStorefront } from '../../context/StorefrontContext';
 import { useAuth } from '../../context/AuthContext';
 import { formatPrice } from '../../utils/formatters';
+import { DreamLogo } from './DreamLogo';
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,6 +54,20 @@ export const Navbar = () => {
             <span className="hidden lg:inline">Beside Westside Mall, SP Verma Road Chauraha, Patna</span>
           </div>
           <div className="flex items-center gap-4">
+            <Link
+              to="/about"
+              className="hidden sm:inline text-xs font-semibold text-[#B7BBC5] hover:text-[#BEF8A1] transition-colors"
+            >
+              About Us
+            </Link>
+            <span className="hidden sm:inline text-[#303746]">|</span>
+            <Link
+              to="/contact"
+              className="hidden sm:inline text-xs font-semibold text-[#B7BBC5] hover:text-[#BEF8A1] transition-colors"
+            >
+              Contact
+            </Link>
+            <span className="hidden sm:inline text-[#303746]">|</span>
             <a
               href="tel:+918448474795"
               className="flex items-center gap-1 hover:text-[#BEF8A1] transition-colors"
@@ -88,18 +103,8 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-[#121826] border border-[#BEF8A1] flex items-center justify-center shadow-glow-subtle group-hover:shadow-glow-accent transition-all">
-              <span className="font-orbitron font-extrabold text-xl text-[#BEF8A1]">D</span>
-            </div>
-            <div>
-              <span className="font-orbitron text-xl sm:text-2xl font-black tracking-wider text-[#F5F5F7] group-hover:text-[#BEF8A1] transition-colors block leading-tight">
-                DREAM<span className="text-[#BEF8A1]">.</span>COMPUTER
-              </span>
-              <span className="text-[10px] tracking-widest uppercase font-rajdhani text-[#B7BBC5] block -mt-1">
-                Patna’s Tech Powerhouse
-              </span>
-            </div>
+          <Link to="/" aria-label="Dream Computer Homepage">
+            <DreamLogo />
           </Link>
 
           {/* Desktop Nav Links */}
@@ -167,6 +172,20 @@ export const Navbar = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#121826] border-b border-[#303746] px-4 pt-3 pb-6 space-y-3">
           <div className="space-y-1">
+            <Link
+              to="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-rajdhani font-bold text-[#BEF8A1] hover:bg-[#191F2D] rounded-md transition-all border-b border-[#303746]/50 mb-1"
+            >
+              About Dream Computer
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-rajdhani font-bold text-[#BEF8A1] hover:bg-[#191F2D] rounded-md transition-all border-b border-[#303746]/50 mb-2"
+            >
+              Contact & Store Location
+            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.name}

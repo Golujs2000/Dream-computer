@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" fill="none">
+  <defs>
+    <radialGradient id="dc-full-bg" cx="40" cy="40" r="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#192238" />
+      <stop offset="70%" stop-color="#0F1626" />
+      <stop offset="100%" stop-color="#0A101E" />
+    </radialGradient>
+    <linearGradient id="dc-full-lime" x1="20" y1="20" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C3FFA5" />
+      <stop offset="100%" stop-color="#8BE362" />
+    </linearGradient>
+    <linearGradient id="dc-full-ring" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BEF8A1" />
+      <stop offset="50%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#BEF8A1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Icon Emblem (Scale 0.72) -->
+  <g transform="translate(4, 4) scale(0.72)">
+    <circle cx="50" cy="50" r="47" fill="url(#dc-full-bg)" stroke="#303746" stroke-width="2" />
+    <circle cx="50" cy="50" r="42" stroke="#BEF8A1" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.6" />
+
+    <path d="M25 21C32 16 41 13 50 13C59 13 68 16 75 21" stroke="url(#dc-full-ring)" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M25 79C32 84 41 87 50 87C59 87 68 84 75 79" stroke="url(#dc-full-ring)" stroke-width="2.5" stroke-linecap="round" />
+
+    <circle cx="25" cy="21" r="2.5" fill="#BEF8A1" />
+    <circle cx="75" cy="21" r="2.5" fill="#00E5FF" />
+    <circle cx="25" cy="79" r="2.5" fill="#00E5FF" />
+    <circle cx="75" cy="79" r="2.5" fill="#BEF8A1" />
+
+    <g transform="translate(1, 0)">
+      <path d="M28 28H42C51 28 57 34 57 50C57 66 51 72 42 72H28V28ZM36 36V64H41C46 64 49 60 49 50C49 40 46 36 41 36H36Z" fill="#F5F5F7" />
+      <path d="M30 31H34V69H30V31Z" fill="#BEF8A1" opacity="0.7" />
+      <path d="M72 37L66 43C62 39 58 37 53 37C44 37 39 42 39 50C39 58 44 63 53 63C58 63 62 61 66 57L72 63C67 69 60 72 52 72C38 72 30 63 30 50C30 37 38 28 52 28C60 28 67 31 72 37Z" fill="url(#dc-full-lime)" />
+    </g>
+    <polygon points="50,47 52,50 50,53 48,50" fill="#00E5FF" />
+  </g>
+
+  <!-- Typography Right -->
+  <text x="92" y="42" font-family="'Orbitron', sans-serif" font-weight="900" font-size="24" fill="#F5F5F7" letter-spacing="2">
+    DREAM<tspan fill="#BEF8A1">.COMP</tspan>
+  </text>
+  <text x="92" y="58" font-family="'Rajdhani', sans-serif" font-weight="700" font-size="11" fill="#BEF8A1" letter-spacing="3">
+    PATNA'S TECH POWERHOUSE
+  </text>
+</svg>

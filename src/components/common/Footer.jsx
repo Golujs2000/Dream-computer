@@ -13,6 +13,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { STORE_INFO } from '../../services/seo/seoConfig';
+import { DreamLogo } from './DreamLogo';
 
 export const Footer = () => {
   return (
@@ -66,13 +67,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#121826] border border-[#BEF8A1] flex items-center justify-center">
-                <span className="font-orbitron font-extrabold text-xl text-[#BEF8A1]">D</span>
-              </div>
-              <span className="font-orbitron text-2xl font-black tracking-wider text-[#F5F5F7]">
-                DREAM<span className="text-[#BEF8A1]">.</span>COMPUTER
-              </span>
+            <Link to="/" aria-label="Dream Computer Homepage">
+              <DreamLogo />
             </Link>
             <p className="text-sm text-[#8B929E] leading-relaxed max-w-md">
               Patna’s premier destination for custom gaming PC rigs, high-performance laptops, workstation components, and precision chip-level hardware repair services.
@@ -159,9 +155,19 @@ export const Footer = () => {
           {/* Patna Local Services */}
           <div>
             <h3 className="font-rajdhani font-bold text-lg text-[#F5F5F7] uppercase tracking-wider mb-4 border-l-2 border-[#BEF8A1] pl-2.5">
-              Patna Services
+              Store & Services
             </h3>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/about" className="text-[#BEF8A1] hover:underline transition-colors font-semibold flex items-center gap-1.5">
+                  <span>→ About Dream Computer</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-[#BEF8A1] hover:underline transition-colors font-semibold flex items-center gap-1.5">
+                  <span>→ Contact & Showroom Map</span>
+                </Link>
+              </li>
               <li>
                 <Link to="/custom-pc-builder" className="hover:text-[#BEF8A1] transition-colors">
                   Custom PC Builder Patna
@@ -224,17 +230,21 @@ export const Footer = () => {
           <div>
             © {new Date().getFullYear()} <span className="text-[#F5F5F7] font-bold">Dream Computer</span> (GSTIN: 10GEBPB0233K1ZA). All rights reserved. Patna, Bihar, India.
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 items-center">
+            <Link to="/about" className="text-[#F5F5F7] hover:text-[#BEF8A1] font-bold transition-colors">
+              About Us
+            </Link>
+            <span>•</span>
+            <Link to="/contact" className="text-[#F5F5F7] hover:text-[#BEF8A1] font-bold transition-colors">
+              Contact Us
+            </Link>
+            <span>•</span>
             <Link to="/privacy-policy" className="hover:text-[#BEF8A1] transition-colors">
               Privacy Policy
             </Link>
             <span>•</span>
             <Link to="/terms-conditions" className="hover:text-[#BEF8A1] transition-colors">
               Terms of Service
-            </Link>
-            <span>•</span>
-            <Link to="/contact" className="hover:text-[#BEF8A1] transition-colors">
-              Store Map & Directions
             </Link>
           </div>
         </div>

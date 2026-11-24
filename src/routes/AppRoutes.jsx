@@ -13,6 +13,7 @@ import { CustomPcBuilderPage } from '../pages/services/CustomPcBuilderPage';
 import { ServicesPage } from '../pages/services/ServicesPage';
 import { LocationLandingPage } from '../pages/services/LocationLandingPage';
 import { ContactPage } from '../pages/contact/ContactPage';
+import { AboutPage } from '../pages/about/AboutPage';
 
 // Admin Pages
 import { AdminLoginPage } from '../pages/admin/AdminLoginPage';
@@ -70,6 +71,7 @@ export const AppRoutes = () => {
         <Route path="/custom-pc-builder" element={<CustomPcBuilderPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about" element={<AboutPage />} />
 
         {/* Dedicated Local SEO Pages for Patna */}
         <Route path="/computer-shop-patna" element={<LocationLandingPage />} />
