@@ -111,42 +111,47 @@ export const Footer = () => {
           {/* Product Categories */}
           <div>
             <h3 className="font-rajdhani font-bold text-lg text-[#F5F5F7] uppercase tracking-wider mb-4 border-l-2 border-[#BEF8A1] pl-2.5">
-              Categories
+              Hardware Catalog
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/products?category=cat-gaming-laptops" className="hover:text-[#BEF8A1] transition-colors">
-                  Gaming Laptops
+                  Gaming & Business Laptops
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=cat-custom-pcs" className="hover:text-[#BEF8A1] transition-colors">
-                  Custom Gaming PCs
+                <Link to="/products?category=cat-desktops" className="hover:text-[#BEF8A1] transition-colors">
+                  Desktop Computers & All-in-Ones
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=cat-graphics-cards" className="hover:text-[#BEF8A1] transition-colors">
-                  Graphics Cards (RTX GPUs)
+                <Link to="/products?category=cat-motherboards" className="hover:text-[#BEF8A1] transition-colors">
+                  Motherboards (ASUS / MSI / Gigabyte)
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=cat-processors" className="hover:text-[#BEF8A1] transition-colors">
-                  Intel & AMD Processors
+                <Link to="/products?category=cat-smps" className="hover:text-[#BEF8A1] transition-colors">
+                  SMPS & Power Supplies
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=cat-ram-ssd" className="hover:text-[#BEF8A1] transition-colors">
-                  RAM & NVMe SSD Storage
+                <Link to="/products?category=cat-cabinets" className="hover:text-[#BEF8A1] transition-colors">
+                  ATX Cabinets & Gaming Cases
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=cat-monitors" className="hover:text-[#BEF8A1] transition-colors">
-                  High Refresh Gaming Monitors
+                <Link to="/products?category=cat-printers" className="hover:text-[#BEF8A1] transition-colors">
+                  Printers & All-In-Ones (HP/Canon)
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=cat-accessories" className="hover:text-[#BEF8A1] transition-colors">
-                  Mechanical Keyboards & Mice
+                <Link to="/products?category=cat-ups" className="hover:text-[#BEF8A1] transition-colors">
+                  UPS & CVT Power Backup (APC)
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?category=cat-software" className="hover:text-[#BEF8A1] transition-colors">
+                  Genuine Windows 11 & Office
                 </Link>
               </li>
             </ul>

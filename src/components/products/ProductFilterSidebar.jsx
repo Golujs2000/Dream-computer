@@ -97,15 +97,15 @@ export const ProductFilterSidebar = ({
         </div>
         <input
           type="range"
-          min="5000"
+          min="500"
           max="300000"
-          step="5000"
+          step="500"
           value={priceRange}
           onChange={(e) => onChangePriceRange(Number(e.target.value))}
           className="w-full accent-[#BEF8A1] bg-[#191F2D] h-2 rounded-lg cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-[#8B929E] mt-1 font-mono">
-          <span>₹5,000</span>
+          <span>₹500</span>
           <span>₹3,00,000+</span>
         </div>
       </div>
