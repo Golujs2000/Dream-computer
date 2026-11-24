@@ -371,6 +371,38 @@ export const dbService = {
     return newStock;
   },
 
+  // SYNC INITIAL SEED DATA DIRECTLY TO CLOUD FIRESTORE
+  async syncToCloudFirestore() {
+    if (!isFirebaseConfigured || !firestoreDb) {
+      throw new Error('Firebase configuration missing or not connected.');
+    }
+    const { setDoc } = await import('firebase/firestore');
+    
+    // Seed Products
+    for (const prod of INITIAL_PRODUCTS) {
+      await setDoc(doc(firestoreDb, 'products', prod.id), prod, { merge: true });
+    }
+    // Seed Categories
+    for (const cat of INITIAL_CATEGORIES) {
+      await setDoc(doc(firestoreDb, 'categories', cat.id), cat, { merge: true });
+    }
+    // Seed Brands
+    for (const b of INITIAL_BRANDS) {
+      await setDoc(doc(firestoreDb, 'brands', b.id), b, { merge: true });
+    }
+    // Seed Settings
+    await setDoc(doc(firestoreDb, 'settings', 'general'), INITIAL_SETTINGS, { merge: true });
+    // Seed Banners
+    for (const ban of INITIAL_BANNERS) {
+      await setDoc(doc(firestoreDb, 'banners', ban.id), ban, { merge: true });
+    }
+    // Seed Testimonials
+    for (const t of INITIAL_TESTIMONIALS) {
+      await setDoc(doc(firestoreDb, 'testimonials', t.id), t, { merge: true });
+    }
+    return true;
+  },
+
   // RESET / RE-SEED
   resetToDefault() {
     initializeDatabase(true);

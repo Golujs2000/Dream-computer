@@ -6,6 +6,7 @@ import { buildBookingWhatsAppMessage, getWhatsAppUrl, buildProductEnquiryMessage
 import { formatPrice, calculateDiscount, generateBookingId, slugify } from './src/utils/formatters.js';
 import { INITIAL_PRODUCTS } from './src/services/firebase/seedData.js';
 import { getLocalBusinessSchema, getProductSchema } from './src/services/seo/schemas.js';
+import { firebaseConfig, isFirebaseConfigured } from './src/services/firebase/config.js';
 
 console.log('=== RUNNING DREAM COMPUTER SYSTEM VERIFICATION ===\n');
 
@@ -99,5 +100,18 @@ if (!storeSchema.address.streetAddress.toLowerCase().includes('verma road') || s
   throw new Error('Store schema failed local business and GSTIN validation!');
 }
 console.log('   ✓ LocalBusiness & GSTIN Schema PASSED\n');
+
+// 5. Firebase Live Configuration Test
+console.log('5. Testing Live Firebase Configuration:');
+console.log(`   - Project ID: ${firebaseConfig.projectId}`);
+console.log(`   - Auth Domain: ${firebaseConfig.authDomain}`);
+console.log(`   - Storage Bucket: ${firebaseConfig.storageBucket}`);
+console.log(`   - Measurement ID: ${firebaseConfig.measurementId}`);
+console.log(`   - isFirebaseConfigured: ${isFirebaseConfigured}`);
+
+if (!isFirebaseConfigured || firebaseConfig.projectId !== 'dream-computer-a5256' || firebaseConfig.measurementId !== 'G-TP0R0RFT8Q') {
+  throw new Error('Firebase configuration verification failed!');
+}
+console.log('   ✓ Live Firebase Configuration PASSED\n');
 
 console.log('🎉 ALL SYSTEM INTEGRATION TESTS PASSED 100%!');
