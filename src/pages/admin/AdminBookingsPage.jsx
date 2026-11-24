@@ -11,11 +11,13 @@ import {
   Clock,
   X,
   FileSpreadsheet,
+  FileText,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { dbService } from '../../services/firebase/db';
 import { formatPrice, formatDate } from '../../utils/formatters';
 import { getWhatsAppUrl } from '../../services/whatsapp/whatsappService';
+import { QuotationModal } from '../../components/common/QuotationModal';
 
 const STATUS_OPTIONS = [
   'New',
@@ -33,6 +35,8 @@ export const AdminBookingsPage = () => {
   const [statusFilter, setStatusFilter] = useState('');
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isQuotationOpen, setIsQuotationOpen] = useState(false);
+  const [quotationBooking, setQuotationBooking] = useState(null);
 
   // Status update state in modal
   const [editStatus, setEditStatus] = useState('');
@@ -215,6 +219,16 @@ export const AdminBookingsPage = () => {
                     <td className="py-3 px-4 text-right">
                       <div className="flex items-center justify-end gap-1.5">
                         <button
+                          onClick={() => {
+                            setQuotationBooking(b);
+                            setIsQuotationOpen(true);
+                          }}
+                          className="p-1.5 bg-[#191F2D] hover:bg-[#252e42] text-[#BEF8A1] rounded border border-[#303746] transition-all"
+                          title="View Official Quotation Pad"
+                        >
+                          <FileText className="w-3.5 h-3.5" />
+                        </button>
+                        <button
                           onClick={() => openBookingModal(b)}
                           className="px-2.5 py-1 bg-[#191F2D] hover:bg-[#252e42] text-[#BEF8A1] rounded border border-[#303746] font-rajdhani font-bold uppercase text-[11px]"
                         >
@@ -283,7 +297,16 @@ export const AdminBookingsPage = () => {
                   </div>
                 )}
 
-                <div className="flex gap-2 pt-2">
+                <div className="flex gap-2 pt-2 flex-wrap">
+                  <button
+                    onClick={() => {
+                      setQuotationBooking(selectedBooking);
+                      setIsQuotationOpen(true);
+                    }}
+                    className="px-3 py-1.5 bg-[#191F2D] hover:bg-[#252e42] border border-[#BEF8A1]/50 text-[#BEF8A1] rounded font-rajdhani font-bold uppercase flex items-center gap-1.5"
+                  >
+                    <FileText className="w-3.5 h-3.5" /> Official Quotation Sheet
+                  </button>
                   <a
                     href={`tel:${selectedBooking.customer?.phone}`}
                     className="px-3 py-1.5 bg-[#0A101E] border border-[#303746] text-[#F5F5F7] hover:text-[#BEF8A1] rounded font-rajdhani font-bold uppercase flex items-center gap-1.5"
@@ -396,6 +419,20 @@ export const AdminBookingsPage = () => {
           </div>
         </div>
       )}
+
+      {/* Official Dream Computer Quotation Sheet Modal */}
+      <QuotationModal
+        isOpen={isQuotationOpen}
+        onClose={() => setIsQuotationOpen(false)}
+        initialCustomer={{
+          name: quotationBooking?.customer?.name || '',
+          phone: quotationBooking?.customer?.phone || '',
+          address: quotationBooking?.customer?.address || 'Patna, Bihar',
+          date: quotationBooking?.createdAt ? new Date(quotationBooking.createdAt).toLocaleDateString('en-GB') : undefined,
+        }}
+        initialItems={quotationBooking?.items || []}
+        title={`Official Quotation - ${quotationBooking?.bookingId || ''}`}
+      />
     </div>
   );
 };

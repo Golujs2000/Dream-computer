@@ -56,17 +56,22 @@ export const ContactPage = () => {
             {/* Store Information */}
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-[#121826] border border-[#303746] rounded-2xl p-6 sm:p-8 space-y-5">
-                <h3 className="font-orbitron font-bold text-lg text-[#F5F5F7] uppercase">
-                  STORE DETAILS
-                </h3>
+                <div className="flex items-center justify-between pb-2 border-b border-[#303746]/60">
+                  <h3 className="font-orbitron font-bold text-lg text-[#F5F5F7] uppercase">
+                    STORE DETAILS
+                  </h3>
+                  <span className="text-[11px] font-rajdhani font-bold px-2 py-0.5 rounded bg-[#191F2D] border border-[#BEF8A1]/40 text-[#BEF8A1]">
+                    GSTIN: 10GEBPB0233K1ZA
+                  </span>
+                </div>
 
                 <div className="space-y-4 text-sm">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-[#BEF8A1] shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-[#F5F5F7]">Address</div>
+                      <div className="font-bold text-[#F5F5F7]">Official Store Address</div>
                       <p className="text-xs text-[#B7BBC5] leading-relaxed">
-                        Hargovind Bhawan, SP Verma Road Corner, New Dak Bunglow Road, Near SBI ATM, opposite Westside Mall lane, Patna, Bihar – 800001
+                        Beside of Westside Mall, Near SBI ATM, S.P. Verma Road Chauraha, New Dakbunglow Main Road, Patna-01
                       </p>
                     </div>
                   </div>
@@ -74,9 +79,25 @@ export const ContactPage = () => {
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-[#BEF8A1] shrink-0" />
                     <div>
-                      <div className="font-bold text-[#F5F5F7]">Phone / WhatsApp</div>
-                      <a href="tel:+918448474795" className="text-xs text-[#BEF8A1] hover:underline">
-                        +91 84484 74795
+                      <div className="font-bold text-[#F5F5F7]">Phone Numbers</div>
+                      <div className="flex items-center gap-2 text-xs">
+                        <a href="tel:+918448474795" className="text-[#BEF8A1] hover:underline">
+                          +91 84484 74795
+                        </a>
+                        <span className="text-[#8B929E]">/</span>
+                        <a href="https://wa.me/918292921078" target="_blank" rel="noopener noreferrer" className="text-[#BEF8A1] hover:underline">
+                          WA: +91 82929 21078
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-[#BEF8A1] shrink-0" />
+                    <div>
+                      <div className="font-bold text-[#F5F5F7]">Official Email</div>
+                      <a href="mailto:dreamcomputer2026@gmail.com" className="text-xs text-[#BEF8A1] hover:underline">
+                        dreamcomputer2026@gmail.com
                       </a>
                     </div>
                   </div>

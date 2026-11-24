@@ -24,24 +24,42 @@ export const StoreLocationSection = () => {
             </p>
 
             <div className="space-y-4 text-sm bg-[#121826] p-5 rounded-xl border border-[#303746]">
-              <div className="flex items-start gap-3">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-rajdhani font-bold px-2 py-0.5 rounded bg-[#191F2D] border border-[#BEF8A1]/40 text-[#BEF8A1]">
+                  GSTIN: 10GEBPB0233K1ZA
+                </span>
+                <span className="text-[11px] text-[#8B929E]">Registered Hardware Store</span>
+              </div>
+
+              <div className="flex items-start gap-3 pt-1 border-t border-[#303746]/50">
                 <MapPin className="w-5 h-5 text-[#BEF8A1] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#F5F5F7] font-rajdhani text-base">Store Address</div>
                   <div className="text-xs text-[#B7BBC5] leading-relaxed">
-                    Hargovind Bhawan, SP Verma Road Corner, New Dak Bunglow Road, Near SBI ATM, opposite Westside Mall lane, Patna, Bihar – 800001
+                    Beside of Westside Mall, Near SBI ATM, S.P. Verma Road Chauraha, New Dakbunglow Main Road, Patna-01
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 pt-2 border-t border-[#303746]/50">
                 <Phone className="w-4 h-4 text-[#BEF8A1] shrink-0" />
-                <a
-                  href="tel:+918448474795"
-                  className="font-rajdhani font-bold text-sm text-[#F5F5F7] hover:text-[#BEF8A1]"
-                >
-                  +91 84484 74795
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="tel:+918448474795"
+                    className="font-rajdhani font-bold text-sm text-[#F5F5F7] hover:text-[#BEF8A1]"
+                  >
+                    +91 84484 74795
+                  </a>
+                  <span className="text-[#8B929E]">|</span>
+                  <a
+                    href="https://wa.me/918292921078"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-rajdhani font-bold text-sm text-[#BEF8A1] hover:underline"
+                  >
+                    WA: +91 82929 21078
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-3 pt-2 border-t border-[#303746]/50">

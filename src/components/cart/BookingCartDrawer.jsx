@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { X, Trash2, Plus, Minus, ArrowRight, ShoppingBag, ShieldCheck } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ArrowRight, ShoppingBag, ShieldCheck, FileText } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { formatPrice } from '../../utils/formatters';
 import { BookingFormModal } from './BookingFormModal';
 import { BookingSuccessModal } from './BookingSuccessModal';
+import { QuotationModal } from '../common/QuotationModal';
 
 export const BookingCartDrawer = () => {
   const {
@@ -18,6 +19,7 @@ export const BookingCartDrawer = () => {
 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [completedBooking, setCompletedBooking] = useState(null);
+  const [isQuotationOpen, setIsQuotationOpen] = useState(false);
 
   if (!isCartOpen) return (
     <>
@@ -32,6 +34,12 @@ export const BookingCartDrawer = () => {
           onClose={() => setCompletedBooking(null)}
         />
       )}
+      <QuotationModal
+        isOpen={isQuotationOpen}
+        onClose={() => setIsQuotationOpen(false)}
+        initialItems={cartItems}
+        title="Official Booking Cart Quotation"
+      />
     </>
   );
 
@@ -175,6 +183,16 @@ export const BookingCartDrawer = () => {
                   >
                     <span>Proceed to WhatsApp Booking</span>
                     <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsCartOpen(false);
+                      setIsQuotationOpen(true);
+                    }}
+                    className="w-full py-2 bg-[#191F2D] hover:bg-[#252e42] border border-[#303746] hover:border-[#BEF8A1] text-[#BEF8A1] font-rajdhani font-bold uppercase tracking-wider text-xs rounded-lg flex items-center justify-center gap-1.5 transition-all"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Official Quotation Estimate</span>
                   </button>
                   <button
                     onClick={clearCart}

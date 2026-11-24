@@ -77,22 +77,37 @@ export const Footer = () => {
             <p className="text-sm text-[#8B929E] leading-relaxed max-w-md">
               Patna’s premier destination for custom gaming PC rigs, high-performance laptops, workstation components, and precision chip-level hardware repair services.
             </p>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2.5 text-sm">
+              <div className="inline-block px-2.5 py-1 rounded bg-[#191F2D] border border-[#BEF8A1]/40 text-[#BEF8A1] font-rajdhani font-bold text-xs uppercase tracking-wider mb-1">
+                GSTIN: 10GEBPB0233K1ZA
+              </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#BEF8A1] shrink-0 mt-0.5" />
-                <span>
-                  Hargovind Bhawan, SP Verma Road Corner, New Dak Bunglow Road, Near SBI ATM, opposite Westside Mall lane, Patna, Bihar – 800001
+                <span className="text-xs leading-relaxed">
+                  Beside of Westside Mall, Near SBI ATM, S.P. Verma Road Chauraha, New Dakbunglow Main Road, Patna-01
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#BEF8A1] shrink-0" />
-                <a href="tel:+918448474795" className="hover:text-[#BEF8A1] transition-colors">
-                  +91 84484 74795
+                <div className="text-xs">
+                  <a href="tel:+918448474795" className="hover:text-[#BEF8A1] transition-colors">
+                    +91 84484 74795
+                  </a>
+                  <span className="mx-2 text-[#8B929E]">|</span>
+                  <a href="https://wa.me/918292921078" target="_blank" rel="noopener noreferrer" className="hover:text-[#BEF8A1] transition-colors">
+                    WA: +91 82929 21078
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-[#BEF8A1] shrink-0" />
+                <a href="mailto:dreamcomputer2026@gmail.com" className="text-xs hover:text-[#BEF8A1] transition-colors">
+                  dreamcomputer2026@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-[#BEF8A1] shrink-0" />
-                <span>Monday – Sunday: 9:00 AM – 9:00 PM</span>
+                <span className="text-xs">Monday – Sunday: 9:00 AM – 9:00 PM</span>
               </div>
             </div>
           </div>
@@ -207,7 +222,7 @@ export const Footer = () => {
         {/* Bottom copyright and legal */}
         <div className="pt-8 border-t border-[#303746] flex flex-col sm:flex-row items-center justify-between text-xs text-[#8B929E] gap-4">
           <div>
-            © {new Date().getFullYear()} <span className="text-[#F5F5F7] font-bold">Dream Computer</span>. All rights reserved. Patna, Bihar, India.
+            © {new Date().getFullYear()} <span className="text-[#F5F5F7] font-bold">Dream Computer</span> (GSTIN: 10GEBPB0233K1ZA). All rights reserved. Patna, Bihar, India.
           </div>
           <div className="flex gap-4">
             <Link to="/privacy-policy" className="hover:text-[#BEF8A1] transition-colors">

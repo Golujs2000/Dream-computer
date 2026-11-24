@@ -85,17 +85,19 @@ if (schema.offers.price !== 139990 || schema.sku !== 'DC-ROG-G16-32G-1T-4070') {
 console.log('   ✓ Product Variations & Schema PASSED\n');
 
 // 4. LocalBusiness Schema Test
-console.log('4. Testing LocalBusiness Structured Data:');
+console.log('4. Testing LocalBusiness Structured Data & GSTIN Validation:');
 const storeSchema = getLocalBusinessSchema();
 console.log(`   - Business Name: ${storeSchema.name}`);
+console.log(`   - GSTIN / Tax ID: ${storeSchema.vatID}`);
+console.log(`   - Email: ${storeSchema.email}`);
 console.log(`   - Street Address: ${storeSchema.address.streetAddress}`);
 console.log(`   - City: ${storeSchema.address.addressLocality}`);
 console.log(`   - Geo: Lat ${storeSchema.geo.latitude}, Lon ${storeSchema.geo.longitude}`);
 console.log(`   - Opening Hours: ${storeSchema.openingHoursSpecification.length} entries`);
 
-if (!storeSchema.address.streetAddress.includes('SP Verma Road') || storeSchema.address.addressLocality !== 'Patna') {
-  throw new Error('Store schema failed local business validation!');
+if (!storeSchema.address.streetAddress.toLowerCase().includes('verma road') || storeSchema.vatID !== '10GEBPB0233K1ZA' || storeSchema.email !== 'dreamcomputer2026@gmail.com') {
+  throw new Error('Store schema failed local business and GSTIN validation!');
 }
-console.log('   ✓ LocalBusiness Schema PASSED\n');
+console.log('   ✓ LocalBusiness & GSTIN Schema PASSED\n');
 
 console.log('🎉 ALL SYSTEM INTEGRATION TESTS PASSED 100%!');

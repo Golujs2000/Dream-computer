@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Cpu, CheckCircle2, MessageSquare, ShoppingCart, RefreshCw, Sparkles, Send } from 'lucide-react';
+import { Cpu, CheckCircle2, MessageSquare, ShoppingCart, RefreshCw, Sparkles, Send, FileText } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { formatPrice } from '../../utils/formatters';
 import { buildCustomPcEnquiryMessage, getWhatsAppUrl } from '../../services/whatsapp/whatsappService';
 import { analyticsService } from '../../services/firebase/analyticsService';
 import { useCart } from '../../context/CartContext';
+import { QuotationModal } from '../../components/common/QuotationModal';
 
 const PC_PARTS = {
   processor: [
@@ -65,6 +66,7 @@ export const CustomPcBuilderPage = () => {
     cabinet: PC_PARTS.cabinet[1],
   });
 
+  const [isQuotationOpen, setIsQuotationOpen] = useState(false);
   const { addToCart, setIsCartOpen } = useCart();
 
   const handleSelect = (category, item) => {
@@ -251,8 +253,16 @@ export const CustomPcBuilderPage = () => {
                 </button>
 
                 <button
+                  onClick={() => setIsQuotationOpen(true)}
+                  className="w-full py-2.5 bg-[#191F2D] hover:bg-[#252e42] border border-[#BEF8A1]/50 text-[#BEF8A1] font-rajdhani font-bold text-sm uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all shadow-glow-subtle"
+                >
+                  <FileText className="w-4 h-4" />
+                  <span>Official Quotation Sheet</span>
+                </button>
+
+                <button
                   onClick={handleAddCustomPcToCart}
-                  className="w-full py-3 bg-[#191F2D] hover:bg-[#252e42] border border-[#303746] hover:border-[#BEF8A1] text-[#F5F5F7] font-rajdhani font-bold text-sm uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all"
+                  className="w-full py-2.5 bg-[#121826] hover:bg-[#191F2D] border border-[#303746] hover:border-[#BEF8A1] text-[#F5F5F7] font-rajdhani font-bold text-sm uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-all"
                 >
                   <ShoppingCart className="w-4 h-4 text-[#BEF8A1]" />
                   <span>Add to Booking Cart</span>
@@ -260,7 +270,7 @@ export const CustomPcBuilderPage = () => {
               </div>
 
               <div className="p-3 bg-[#0A101E] border border-[#303746] rounded-lg text-[11px] text-[#8B929E] space-y-1">
-                <p>• All parts include authorized GST invoice.</p>
+                <p>• All parts include authorized GST invoice (GSTIN: 10GEBPB0233K1ZA).</p>
                 <p>• 48-Hour benchmark & thermals stress-test included.</p>
                 <p>• Free physical pickup at SP Verma Road showroom.</p>
               </div>
@@ -268,6 +278,23 @@ export const CustomPcBuilderPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Official Quotation Pad Modal */}
+      <QuotationModal
+        isOpen={isQuotationOpen}
+        onClose={() => setIsQuotationOpen(false)}
+        initialItems={[
+          selectedParts.processor && { name: 'PROCESSOR', desc: selectedParts.processor.name, qty: 1, rate: selectedParts.processor.price, amount: selectedParts.processor.price },
+          selectedParts.motherboard && { name: 'MOTHER BOARD', desc: selectedParts.motherboard.name, qty: 1, rate: selectedParts.motherboard.price, amount: selectedParts.motherboard.price },
+          selectedParts.graphics && { name: 'GRAPHIC CARD', desc: selectedParts.graphics.name, qty: 1, rate: selectedParts.graphics.price, amount: selectedParts.graphics.price },
+          selectedParts.ram && { name: 'RAM', desc: selectedParts.ram.name, qty: 1, rate: selectedParts.ram.price, amount: selectedParts.ram.price },
+          selectedParts.storage && { name: 'SSD', desc: selectedParts.storage.name, qty: 1, rate: selectedParts.storage.price, amount: selectedParts.storage.price },
+          selectedParts.cabinet && { name: 'ATX CABINET', desc: selectedParts.cabinet.name, qty: 1, rate: selectedParts.cabinet.price, amount: selectedParts.cabinet.price },
+          selectedParts.powersupply && { name: 'SMPS', desc: selectedParts.powersupply.name, qty: 1, rate: selectedParts.powersupply.price, amount: selectedParts.powersupply.price },
+          selectedParts.cooler && { name: 'OTHER', desc: `Cooling: ${selectedParts.cooler.name}`, qty: 1, rate: selectedParts.cooler.price, amount: selectedParts.cooler.price },
+        ].filter(Boolean)}
+        title="Official Dream Computer PC Build Quotation"
+      />
     </>
   );
 };

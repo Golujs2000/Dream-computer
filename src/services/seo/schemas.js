@@ -15,6 +15,9 @@ export const getLocalBusinessSchema = () => ({
   image: `${STORE_INFO.url}/images/storefront-banner.jpg`,
   description: STORE_INFO.description,
   telephone: STORE_INFO.telephone,
+  email: STORE_INFO.email,
+  vatID: STORE_INFO.gstin,
+  taxID: STORE_INFO.gstin,
   priceRange: STORE_INFO.priceRange,
   address: {
     '@type': 'PostalAddress',
@@ -60,18 +63,19 @@ export const getProductSchema = (product, selectedVariant = null) => {
     image: product.images && product.images.length > 0 ? product.images : [`${STORE_INFO.url}/favicon.svg`],
     description: product.shortDescription || product.description,
     sku: sku,
+    mpn: sku,
     brand: {
       '@type': 'Brand',
       name: product.brandName || 'Dream Computer',
     },
     offers: {
       '@type': 'Offer',
-      url: `${STORE_INFO.url}/product/${product.slug}`,
+      url: `${STORE_INFO.url}/products/${product.slug || product.id}`,
       priceCurrency: 'INR',
       price: price,
-      priceValidUntil: '2027-12-31',
-      itemCondition: 'https://schema.org/NewCondition',
+      priceValidUntil: '2026-12-31',
       availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      itemCondition: 'https://schema.org/NewCondition',
       seller: {
         '@type': 'Organization',
         name: STORE_INFO.name,
@@ -80,12 +84,12 @@ export const getProductSchema = (product, selectedVariant = null) => {
   };
 };
 
-export const getBreadcrumbsSchema = (breadcrumbs) => ({
+export const getBreadcrumbSchema = (breadcrumbs = []) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
-  itemListElement: breadcrumbs.map((crumb, idx) => ({
+  itemListElement: breadcrumbs.map((crumb, index) => ({
     '@type': 'ListItem',
-    position: idx + 1,
+    position: index + 1,
     name: crumb.name,
     item: `${STORE_INFO.url}${crumb.path}`,
   })),

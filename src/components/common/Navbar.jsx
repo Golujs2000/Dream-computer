@@ -40,26 +40,42 @@ export const Navbar = () => {
       {/* Top Bar for Patna Store Info */}
       <div className="bg-[#121826] text-xs text-[#B7BBC5] py-1.5 px-4 border-b border-[#303746]/50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+          <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
             <span className="flex items-center gap-1.5 text-[#F5F5F7]">
               <span className="w-2 h-2 rounded-full bg-[#BEF8A1] animate-pulse"></span>
-              Patna Store Open Today: 9:00 AM – 9:00 PM
+              Patna Store: 9:00 AM – 9:00 PM
             </span>
             <span className="hidden md:inline text-[#8B929E]">|</span>
-            <span className="hidden md:inline">SP Verma Road Corner, New Dak Bunglow Road, Patna</span>
+            <span className="hidden md:inline text-[#BEF8A1] font-rajdhani font-bold px-1.5 py-0.5 rounded bg-[#191F2D] border border-[#BEF8A1]/30">
+              GSTIN: 10GEBPB0233K1ZA
+            </span>
+            <span className="hidden lg:inline text-[#8B929E]">|</span>
+            <span className="hidden lg:inline">Beside Westside Mall, SP Verma Road Chauraha, Patna</span>
           </div>
           <div className="flex items-center gap-4">
             <a
               href="tel:+918448474795"
               className="flex items-center gap-1 hover:text-[#BEF8A1] transition-colors"
+              title="Call Store"
             >
               <Phone className="w-3.5 h-3.5 text-[#BEF8A1]" />
               <span>+91 84484 74795</span>
             </a>
+            <span className="text-[#8B929E]">/</span>
+            <a
+              href="https://wa.me/918292921078"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-[#BEF8A1] transition-colors"
+              title="WhatsApp Store"
+            >
+              <span className="text-[#BEF8A1] font-bold">WA:</span>
+              <span>82929 21078</span>
+            </a>
             {isAdmin && (
               <Link
                 to="/admin"
-                className="text-[#BEF8A1] font-semibold hover:underline flex items-center gap-1"
+                className="text-[#BEF8A1] font-semibold hover:underline flex items-center gap-1 ml-2"
               >
                 <Sliders className="w-3.5 h-3.5" /> Admin Panel
               </Link>
